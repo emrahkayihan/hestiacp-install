@@ -30,7 +30,7 @@ fpm_v="7.4"
 mariadb_v="10.5"
 
 # Defining software pack for all distros
-software="apache2 apache2.2-common apache2-suexec-custom apache2-utils
+software="apache2 apache2.2-common apache2-suexec-custom apache2-utils nginx
     apparmor-utils awstats bc bsdmainutils bsdutils cron curl dnsutils e2fslibs e2fsprogs expect fail2ban flex ftp git idn imagemagick
     libapache2-mod-fcgid libapache2-mod-php$fpm_v libapache2-mod-rpaf
     lsof mc mariadb-client mariadb-common mariadb-server php$fpm_v php$fpm_v-cgi php$fpm_v-common php$fpm_v-curl phpmyadmin
@@ -203,7 +203,7 @@ while getopts "a:n:w:v:j:k:m:g:d:x:z:c:t:i:b:r:o:q:l:y:s:e:p:D:fh" Option; do
 done
 
 # Defining default software stack
-set_default_value 'nginx' 'no'
+set_default_value 'nginx' 'yes'
 set_default_value 'apache' 'yes'
 set_default_value 'phpfpm' 'yes'
 set_default_value 'multiphp' 'no'
