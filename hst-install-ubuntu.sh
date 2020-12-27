@@ -31,16 +31,16 @@ mariadb_v="10.5"
 
 # Defining software pack for all distros
 software="apache2 apache2.2-common apache2-suexec-custom apache2-utils
-    apparmor-utils awstats bc bsdmainutils bsdutils cron curl dnsutils 
-    e2fslibs e2fsprogs expect fail2ban flex ftp git idn imagemagick
+    apparmor-utils awstats bc bsdmainutils bsdutils cron curl dnsutils e2fslibs e2fsprogs 
+    expect fail2ban flex ftp git idn imagemagick
     libapache2-mod-fcgid libapache2-mod-php$fpm_v libapache2-mod-rpaf
     lsof mc mariadb-client mariadb-common mariadb-server nginx
     php$fpm_v php$fpm_v-cgi php$fpm_v-common php$fpm_v-curl phpmyadmin
-    php$fpm_v-mysql php$fpm_v-imap php$fpm_v-ldap php$fpm_v-apcu 
-    php$fpm_v-pgsql php$fpm_v-zip php$fpm_v-bz2 php$fpm_v-cli php$fpm_v-gd
+    php$fpm_v-mysql php$fpm_v-ldap php$fpm_v-apcu 
+    php$fpm_v-zip php$fpm_v-bz2 php$fpm_v-cli php$fpm_v-gd
     php$fpm_v-imagick php$fpm_v-intl php$fpm_v-json php$fpm_v-mbstring
-    php$fpm_v-opcache php$fpm_v-pspell php$fpm_v-readline php$fpm_v-xml 
-    quota  rrdtool rssh sudo hestia=${HESTIA_INSTALL_VER}
+    php$fpm_v-opcache php$fpm_v-pspell php$fpm_v-readline php$fpm_v-xml
+    quota rrdtool rssh sudo hestia=${HESTIA_INSTALL_VER}
     hestia-nginx hestia-php vim-common vsftpd whois zip acl sysstat setpriv
     ipset libonig5 libzip5 openssh-server zstd"
 
@@ -221,8 +221,8 @@ if [ $memory -lt 1500000 ]; then
     set_default_value 'clamd' 'no'
     set_default_value 'spamd' 'no'
 else
-    set_default_value 'clamd' 'no'
-    set_default_value 'spamd' 'no'
+    set_default_value 'clamd' 'yes'
+    set_default_value 'spamd' 'yes'
 fi
 set_default_value 'iptables' 'yes'
 set_default_value 'fail2ban' 'yes'
