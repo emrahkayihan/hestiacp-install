@@ -23,7 +23,7 @@ HESTIA_INSTALL_DIR="$HESTIA/install/deb"
 VERBOSE='no'
 
 # Define software versions
-HESTIA_INSTALL_VER='1.3.2'
+HESTIA_INSTALL_VER='1.3.3'
 pma_v='5.0.4'
 multiphp_v=("5.6" "7.0" "7.1" "7.2" "7.3" "7.4" "8.0")
 fpm_v="7.4"
@@ -31,16 +31,14 @@ mariadb_v="10.5"
 
 # Defining software pack for all distros
 software="apache2 apache2.2-common apache2-suexec-custom apache2-utils
-    apparmor-utils awstats bc bsdmainutils bsdutils cron curl dnsutils e2fslibs e2fsprogs 
-    expect fail2ban flex ftp git idn imagemagick
+    apparmor-utils awstats bc bind9 bsdmainutils bsdutils cron curl dnsutils e2fslibs e2fsprogs expect fail2ban flex ftp git idn imagemagick
     libapache2-mod-fcgid libapache2-mod-php$fpm_v libapache2-mod-rpaf
     lsof mc mariadb-client mariadb-common mariadb-server nginx
     php$fpm_v php$fpm_v-cgi php$fpm_v-common php$fpm_v-curl phpmyadmin
-    php$fpm_v-mysql php$fpm_v-ldap php$fpm_v-apcu 
-    php$fpm_v-zip php$fpm_v-bz2 php$fpm_v-cli php$fpm_v-gd
+    php$fpm_v-mysql php$fpm_v-imap php$fpm_v-ldap php$fpm_v-apcu php$fpm_v-pgsql php$fpm_v-zip php$fpm_v-bz2 php$fpm_v-cli php$fpm_v-gd
     php$fpm_v-imagick php$fpm_v-intl php$fpm_v-json php$fpm_v-mbstring
     php$fpm_v-opcache php$fpm_v-pspell php$fpm_v-readline php$fpm_v-xml
-    quota rrdtool rssh sudo hestia=${HESTIA_INSTALL_VER}
+    postgresql postgresql-contrib proftpd-basic quota rrdtool rssh sudo hestia=${HESTIA_INSTALL_VER}
     hestia-nginx hestia-php vim-common vsftpd whois zip acl sysstat setpriv
     ipset libonig5 libzip5 openssh-server zstd"
 
@@ -212,11 +210,11 @@ set_default_value 'phpfpm' 'yes'
 set_default_value 'multiphp' 'no'
 set_default_value 'vsftpd' 'yes'
 set_default_value 'proftpd' 'no'
-set_default_value 'named' 'no'
+set_default_value 'named' 'yes'
 set_default_value 'mysql' 'yes'
 set_default_value 'postgresql' 'no'
-set_default_value 'exim' 'no'
-set_default_value 'dovecot' 'no'
+set_default_value 'exim' 'yes'
+set_default_value 'dovecot' 'yes'
 if [ $memory -lt 1500000 ]; then
     set_default_value 'clamd' 'no'
     set_default_value 'spamd' 'no'
@@ -229,8 +227,8 @@ set_default_value 'fail2ban' 'yes'
 set_default_value 'quota' 'no'
 set_default_value 'interactive' 'yes'
 set_default_value 'api' 'yes'
-set_default_port '2096'
-set_default_lang 'tr'
+set_default_port '8083'
+set_default_lang 'en'
 
 # Checking software conflicts
 if [ "$proftpd" = 'yes' ]; then
