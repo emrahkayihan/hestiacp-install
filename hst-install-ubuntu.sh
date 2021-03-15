@@ -31,7 +31,7 @@ mariadb_v="10.5"
 
 # Defining software pack for all distros
 software="apache2 apache2.2-common apache2-suexec-custom apache2-utils
-    apparmor-utils awstats bc bind9 bsdmainutils bsdutils cron curl dnsutils e2fslibs e2fsprogs expect fail2ban flex ftp git idn imagemagick
+    apparmor-utils awstats bc bsdmainutils bsdutils cron curl dnsutils e2fslibs e2fsprogs expect fail2ban flex ftp git idn imagemagick
     libapache2-mod-fcgid libapache2-mod-php$fpm_v libapache2-mod-rpaf
     lsof mc mariadb-client mariadb-common mariadb-server nginx
     php$fpm_v php$fpm_v-cgi php$fpm_v-common php$fpm_v-curl phpmyadmin
@@ -210,11 +210,11 @@ set_default_value 'phpfpm' 'yes'
 set_default_value 'multiphp' 'no'
 set_default_value 'vsftpd' 'yes'
 set_default_value 'proftpd' 'no'
-set_default_value 'named' 'yes'
+set_default_value 'named' 'no'
 set_default_value 'mysql' 'yes'
 set_default_value 'postgresql' 'no'
-set_default_value 'exim' 'yes'
-set_default_value 'dovecot' 'yes'
+set_default_value 'exim' 'no'
+set_default_value 'dovecot' 'no'
 if [ $memory -lt 1500000 ]; then
     set_default_value 'clamd' 'no'
     set_default_value 'spamd' 'no'
@@ -227,8 +227,8 @@ set_default_value 'fail2ban' 'yes'
 set_default_value 'quota' 'no'
 set_default_value 'interactive' 'yes'
 set_default_value 'api' 'yes'
-set_default_port '8083'
-set_default_lang 'en'
+set_default_port '2096'
+set_default_lang 'tr'
 
 # Checking software conflicts
 if [ "$proftpd" = 'yes' ]; then
